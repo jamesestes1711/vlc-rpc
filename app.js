@@ -5,14 +5,9 @@ const config = require("./Storage/config.js");
 
 require("./Functions/client.js");
 
-// Function to generate a random password
-function randomPass() {
-  return Math.random().toString(36).slice(-8);
-}
-
 // Generate a password if needed
 if (config.vlcConfig.password === "") {
-  config.vlcConfig.password = randomPass();
+  config.vlcConfig.password = Math.random().toString(36).slice(-8);
 }
 
 // If windows OS and default path cannot be found try other path
